@@ -29,7 +29,7 @@ public class Vehicle
     //Default Constructor (defined by the name of the class)
     public Vehicle()
     {
-        Console.WriteLine("Default Constructor");
+        Console.WriteLine("Default Vehicle Constructor");
     }
 
 
@@ -50,5 +50,11 @@ public class Vehicle
     public virtual void CloseWindow()
     {
         Console.WriteLine("Vehicle Window Closed");
+    }
+
+    //example2 of polymorphism
+    public virtual void MoveForward()
+    {
+        Console.WriteLine("Vehicle moving forward...");
     }
 }

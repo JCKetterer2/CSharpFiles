@@ -27,6 +27,18 @@ namespace week1
             myCar.Color = "Green";
             myCar.OpenDoor();
             myCar.CloseWindow();
+
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Homework1 bicycle output begins here");
+            Console.WriteLine("------------------------------------");
+
+            vehicle.MoveForward();
+
+            Bicycle myBicycle = new Bicycle();
+            myBicycle.MoveForward();
+            myBicycle.NumofGears = 10;
+            myBicycle.HandlebarType = "Bullhorn handlebars";
+            Console.WriteLine(myBicycle.HandlebarType);
         }
     }
 }
