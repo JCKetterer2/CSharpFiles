@@ -3,7 +3,7 @@ using System;
 //Bicycle is extension of Vehicle (inheritance)
 public class Bicycle : Vehicle
 {
-        //Reference type Field
+    //Reference type Field
     // Private variables should use an underscore
     private int _numOfGears;
 
@@ -23,7 +23,7 @@ public class Bicycle : Vehicle
     }
 
     public string HandlebarType { get; set;}
-    
+
 
     //This MoveForward is an example of polymorphism, as it overrides the Vehicle class MoveForward
     public override void MoveForward()
