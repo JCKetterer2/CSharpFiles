@@ -10,19 +10,23 @@ namespace week1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
 
             /*
             Week1Examples();
             Week2Examples();
 
             Homework1();
+            */
+
             Homework2();
             
-            Week3Examples();
-             */
+           //Week3Examples();
+             
 
             
+            //Fundamentals
+            /*
             Dinosaur dino1 = new Dinosaur();
             dino1.Size = 10;
 
@@ -33,6 +37,7 @@ namespace week1
             Dinosaur.Raptor dino2 = new Dinosaur.Raptor();
             dino2.Skin = true;
             dino2.Eat();
+             */
             
         }
 
@@ -127,9 +132,26 @@ namespace week1
             Console.WriteLine("Homework2 output begins here........");
             Console.WriteLine("------------------------------------");            
 
+            Console.WriteLine();
+
+            Console.WriteLine("Enter grade, noting valid values are:");
+            Console.WriteLine("(E)xcellent, (V)ery Good, (G)ood, (A)verage, and (F)ail");
+            
+            string userGradeInputString = Console.ReadLine().ToUpper();
+
+            char userGradeChar =  Convert.ToChar(userGradeInputString);
+
+            //demonstrate accepting user input and using case statement to evaluate entry
             DetermineGradeDescription myGrade = new DetermineGradeDescription();
-            Console.WriteLine(myGrade.EvaluateGrade('x'));
-            Console.WriteLine(myGrade.EvaluateGrade('A'));            
+
+            Console.WriteLine("The value you entered equates to: " + myGrade.EvaluateGrade(userGradeChar));
+
+            Console.WriteLine();
+            Console.WriteLine("The first TEN natural numbers are:");
+
+            //demonstrate the use of a FOR loop to iterate through and display integer values
+            CountToTen myCount = new CountToTen();
+            myCount.CountViaForLoop();
         }
 
         private static void Week3Examples()
