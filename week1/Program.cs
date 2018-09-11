@@ -139,12 +139,20 @@ namespace week1
             
             string userGradeInputString = Console.ReadLine().ToUpper();
 
-            char userGradeChar =  Convert.ToChar(userGradeInputString);
+            if(userGradeInputString.Length == 1)
+            {
+                char userGradeChar =  Convert.ToChar(userGradeInputString);
 
-            //demonstrate accepting user input and using case statement to evaluate entry
-            DetermineGradeDescription myGrade = new DetermineGradeDescription();
+                //demonstrate accepting user input and using case statement to evaluate entry
+                DetermineGradeDescription myGrade = new DetermineGradeDescription();
 
-            Console.WriteLine("The value you entered equates to: " + myGrade.EvaluateGrade(userGradeChar));
+                Console.WriteLine("The value you entered equates to: " + myGrade.EvaluateGrade(userGradeChar));
+            }
+            else
+            {
+                Console.WriteLine("You may only enter one character");
+            }
+
 
             Console.WriteLine();
             Console.WriteLine("The first TEN natural numbers are:");
