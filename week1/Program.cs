@@ -161,24 +161,16 @@ namespace week1
 
             while (userGradeInputString.Length != 1)
             {
-               Console.WriteLine("Try again:");
+               Console.WriteLine("Try again.. You must enter ONE character:");
                userGradeInputString = Console.ReadLine().ToUpper();
             }
 
-            if(userGradeInputString.Length == 1)
-            {
-                char userGradeChar =  Convert.ToChar(userGradeInputString);
+            char userGradeChar =  Convert.ToChar(userGradeInputString);
 
-                //demonstrate accepting user input and using case statement to evaluate entry
-                DetermineGradeDescription myGrade = new DetermineGradeDescription();
+            //demonstrate accepting user input and using case statement to evaluate entry
+            DetermineGradeDescription myGrade = new DetermineGradeDescription();
 
-                Console.WriteLine("The value you entered equates to: " + myGrade.EvaluateGrade(userGradeChar));
-            }
-            else
-            {
-                Console.WriteLine("You must enter ONE character");
-            }
-
+            Console.WriteLine("The value you entered equates to: " + myGrade.EvaluateGrade(userGradeChar));
 
             Console.WriteLine();
             Console.WriteLine("The first TEN natural numbers are:");
