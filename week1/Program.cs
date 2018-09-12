@@ -15,18 +15,17 @@ namespace week1
             /*
             Week1Examples();
             Week2Examples();
-
-            Homework1();
             */
 
+            //Homework1();
+            
             Homework2();
             
-           //Week3Examples();
-             
+            //Week3Examples();             
 
             
-            //Fundamentals
             /*
+            //Fundamentals
             Dinosaur dino1 = new Dinosaur();
             dino1.Size = 10;
 
@@ -37,8 +36,29 @@ namespace week1
             Dinosaur.Raptor dino2 = new Dinosaur.Raptor();
             dino2.Skin = true;
             dino2.Eat();
+
+            //call default constructor with object initializers (optional parameters, default values)
+            Square yourSquare = new Square {Length = 5, Height =5, Color = "Blue"};
+            Console.WriteLine("yourSquare Color is " + yourSquare.Color);
              */
+
+
+            //deconstructor pattern call
+            /*
+                https://docs.microsoft.com/en-us/dotnet/csharp/deconstruct
+                https://stackoverflow.com/questions/40906305/c-sharp-7-0-deconstructor
+             */
+            /*
+            Square mySquare = new Square(3, 3);
+            var (length, height) = mySquare;
+
+            //the following 2 lines are interchageable with the above "var" line, same result
+            //int l, w;
+            //mySquare.Deconstruct(out l, out w);
             
+            Console.WriteLine(mySquare.Length);
+            Console.WriteLine(length);            
+             */
         }
 
         private static void Week1Examples()
@@ -139,6 +159,12 @@ namespace week1
             
             string userGradeInputString = Console.ReadLine().ToUpper();
 
+            while (userGradeInputString.Length != 1)
+            {
+               Console.WriteLine("Try again:");
+               userGradeInputString = Console.ReadLine().ToUpper();
+            }
+
             if(userGradeInputString.Length == 1)
             {
                 char userGradeChar =  Convert.ToChar(userGradeInputString);
@@ -150,7 +176,7 @@ namespace week1
             }
             else
             {
-                Console.WriteLine("You may only enter one character");
+                Console.WriteLine("You must enter ONE character");
             }
 
 
