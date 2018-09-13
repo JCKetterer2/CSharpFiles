@@ -45,7 +45,12 @@ namespace week1.Fundamentals
         //method is defined as virtual so it can be overridden in child class (polymorphism)
         public virtual void Eat()
         {
-            Console.WriteLine("Eat");
+            Console.WriteLine("Dinosaur Eat");
+        }
+
+        public void Sleep()
+        {
+            Console.WriteLine("Sleep");
         }
 
         //inner child class of Dinosaur (inheritance)
@@ -65,11 +70,12 @@ namespace week1.Fundamentals
         public void Stomp()
         {
             Color = "Blue";
+            Console.WriteLine("Stomp");
         }
 
         public override void Eat()
         {
-            Console.WriteLine("Rip");
+            Console.WriteLine("TRex Eat");
         }
     }
 }

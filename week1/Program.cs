@@ -8,6 +8,10 @@ namespace week1
 {
     class Program
     {
+        /*
+        static Dinosaur dino10;  //not instantiated as a Pterodactyl (for 'as'/null example)
+         */
+
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!");
@@ -19,18 +23,63 @@ namespace week1
 
             //Homework1();
             
-            Homework2();
+            //Homework2();
             
             //Week3Examples();             
 
             
-            /*
+
             //Fundamentals
             Dinosaur dino1 = new Dinosaur();
             dino1.Size = 10;
+            dino1.Eat();  //Dinosaur Eat
 
             TRex tRex = new TRex();
             tRex.Size = 201;
+            tRex.Eat();   //TRex Eat
+
+            Dinosaur dino2 = new TRex();        //Upcasting (implicit)
+            dino2.Eat();  //TRex Eat
+
+            Dinosaur dino3 = new Pterodactyl(); //Upcasting (implicit)
+            dino3.Eat();  //Pterodactyl Eat
+
+            Dinosaur dino4 = new Dinosaur();    //Downcasting (explicit)
+            dino4 = (TRex)tRex;
+            dino4.Eat();  //TRex Eat
+
+
+            /*
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("..........'as' example..........");
+            Console.WriteLine("--------------------------------");
+            //gives -- Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+            //basically, trying to test if dino10 is a Pterodactyl.  It isn't, so returns as null
+            Dinosaur dino6 = dino10 as Pterodactyl;
+            dino6.Sleep();
+             */
+
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("...array and 'is' example.......");
+            Console.WriteLine("--------------------------------");
+            Dinosaur[] dinoArray = {dino1, tRex, dino2, dino3};
+
+            foreach (Dinosaur item in dinoArray)
+            {
+                if(item is TRex)
+                {
+                    item.Eat();
+                }
+
+                if(item is Pterodactyl)
+                {
+                    item.Sleep();
+                }
+            }
+
+
+
+            /*            
             Console.WriteLine(tRex.Size);
 
             Dinosaur.Raptor dino2 = new Dinosaur.Raptor();
