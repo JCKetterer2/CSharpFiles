@@ -14,100 +14,52 @@ namespace week1
 
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World!");
 
             /*
             Week1Examples();
             Week2Examples();
             */
 
-            //Homework1();
-            
+            //Homework1();            
             //Homework2();
             
-            //Week3Examples();             
-
-            
+            //Week3Examples();
+            //Week3Dinosaurs();            
 
             //Fundamentals
-            Dinosaur dino1 = new Dinosaur();
-            dino1.Size = 10;
-            dino1.Eat();  //Dinosaur Eat
-
-            TRex tRex = new TRex();
-            tRex.Size = 201;
-            tRex.Eat();   //TRex Eat
-
-            Dinosaur dino2 = new TRex();        //Upcasting (implicit)
-            dino2.Eat();  //TRex Eat
-
-            Dinosaur dino3 = new Pterodactyl(); //Upcasting (implicit)
-            dino3.Eat();  //Pterodactyl Eat
-
-            Dinosaur dino4 = new Dinosaur();    //Downcasting (explicit)
-            dino4 = (TRex)tRex;
-            dino4.Eat();  //TRex Eat
-
-
             /*
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("..........'as' example..........");
-            Console.WriteLine("--------------------------------");
-            //gives -- Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
-            //basically, trying to test if dino10 is a Pterodactyl.  It isn't, so returns as null
-            Dinosaur dino6 = dino10 as Pterodactyl;
-            dino6.Sleep();
-             */
-
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("...array and 'is' example.......");
-            Console.WriteLine("--------------------------------");
-            Dinosaur[] dinoArray = {dino1, tRex, dino2, dino3};
-
-            foreach (Dinosaur item in dinoArray)
-            {
-                if(item is TRex)
-                {
-                    item.Eat();
-                }
-
-                if(item is Pterodactyl)
-                {
-                    item.Sleep();
-                }
-            }
+              example of calling a static class and its static method, noting
+              that we do not need to instantiate an instance of the class to use it
+            */
+            Console.WriteLine(Utility.AddTwoNumbers(7,6));
 
 
-
-            /*            
-            Console.WriteLine(tRex.Size);
-
-            Dinosaur.Raptor dino2 = new Dinosaur.Raptor();
-            dino2.Skin = true;
-            dino2.Eat();
-
-            //call default constructor with object initializers (optional parameters, default values)
-            Square yourSquare = new Square {Length = 5, Height =5, Color = "Blue"};
-            Console.WriteLine("yourSquare Color is " + yourSquare.Color);
-             */
+            //the square has access to the abstract class Shape's properties (ie: square.Sides)
+            Square square = new Square(5,5);
+            square.Sides = 100;
+            Console.WriteLine(square.Area());
 
 
-            //deconstructor pattern call
-            /*
-                https://docs.microsoft.com/en-us/dotnet/csharp/deconstruct
-                https://stackoverflow.com/questions/40906305/c-sharp-7-0-deconstructor
-             */
-            /*
-            Square mySquare = new Square(3, 3);
-            var (length, height) = mySquare;
+            //Generics example
+            Dinosaur dino1G = new Dinosaur();
+            Dinosaur dino2G = new Dinosaur();
+            Dinosaur dino3G = new Dinosaur();
+            TRex tRexG      = new TRex();
+            GenericsList<Dinosaur> dinoList = new GenericsList<Dinosaur>();
+            dinoList.Add(dino1G);
+            dinoList.Add(dino2G);
+            dinoList.Add(dino3G);
+            dinoList.Add(tRexG);
 
-            //the following 2 lines are interchageable with the above "var" line, same result
-            //int l, w;
-            //mySquare.Deconstruct(out l, out w);
+
+            //Indexers
+            IndexerSample indexSample = new IndexerSample();
             
-            Console.WriteLine(mySquare.Length);
-            Console.WriteLine(length);            
-             */
+            for (int i = 0; i < indexSample.Length; i++)
+            {
+                Console.WriteLine(indexSample[i]);
+            }
         }
 
         private static void Week1Examples()
@@ -254,5 +206,88 @@ namespace week1
             myStatements.SwitchStatemntExample("Friday");
             myStatements.ForEachLoopExample();
         }        
+
+        private static void Week3Dinosaurs()
+        {
+            //Dinosaur examples (week3 topics continued)
+            Dinosaur dino1 = new Dinosaur();
+            dino1.Size = 10;
+            dino1.Eat();  //Dinosaur Eat
+
+            TRex tRex = new TRex();
+            tRex.Size = 201;
+            tRex.Eat();   //TRex Eat
+
+            Dinosaur dino2 = new TRex();        //Upcasting (implicit)
+            dino2.Eat();  //TRex Eat
+
+            Dinosaur dino3 = new Pterodactyl(); //Upcasting (implicit)
+            dino3.Eat();  //Pterodactyl Eat
+
+            Dinosaur dino4 = new Dinosaur();    //Downcasting (explicit)
+            dino4 = (TRex)tRex;
+            dino4.Eat();  //TRex Eat
+
+
+            /*
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("..........'as' example..........");
+            Console.WriteLine("--------------------------------");
+            //gives -- Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+            //basically, trying to test if dino10 is a Pterodactyl.  It isn't, so returns as null
+            Dinosaur dino6 = dino10 as Pterodactyl;
+            dino6.Sleep();
+             */
+
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("...array and 'is' example.......");
+            Console.WriteLine("--------------------------------");
+            Dinosaur[] dinoArray = {dino1, tRex, dino2, dino3};
+
+            foreach (Dinosaur item in dinoArray)
+            {
+                if(item is TRex)
+                {
+                    item.Eat();
+                }
+
+                if(item is Pterodactyl)
+                {
+                    item.Sleep();
+                }
+            }
+
+
+
+            /*            
+            Console.WriteLine(tRex.Size);
+
+            Dinosaur.Raptor dino2 = new Dinosaur.Raptor();
+            dino2.Skin = true;
+            dino2.Eat();
+
+            //call default constructor with object initializers (optional parameters, default values)
+            Square yourSquare = new Square {Length = 5, Height =5, Color = "Blue"};
+            Console.WriteLine("yourSquare Color is " + yourSquare.Color);
+             */
+
+
+            //deconstructor pattern call
+            /*
+                https://docs.microsoft.com/en-us/dotnet/csharp/deconstruct
+                https://stackoverflow.com/questions/40906305/c-sharp-7-0-deconstructor
+             */
+            /*
+            Square mySquare = new Square(3, 3);
+            var (length, height) = mySquare;
+
+            //the following 2 lines are interchageable with the above "var" line, same result
+            //int l, w;
+            //mySquare.Deconstruct(out l, out w);
+            
+            Console.WriteLine(mySquare.Length);
+            Console.WriteLine(length);            
+             */
+        }
     }
 }

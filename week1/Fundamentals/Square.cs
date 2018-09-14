@@ -2,7 +2,7 @@ using System;
 
 namespace week1.Fundamentals
 {
-    public class Square
+    public class Square : Shape
     {
         //properties
         public int Length {get; set;}
@@ -37,6 +37,13 @@ namespace week1.Fundamentals
             System.Convert.ToDouble(23.4f); // intellisense will popup possible parenthesis value types
         }
          */
+
+        //Shapes is an abstract class containing the abstract method Area, being implemented here
+        public override double Area()
+        {
+            Sides = 4;
+            return (this.Length * this.Height) + Sides;
+        }
 
     }
 }
