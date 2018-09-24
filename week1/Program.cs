@@ -3,6 +3,7 @@ using Week1.Homework1b;
 using week1.week2;
 using Week1.Homework2;
 using week1.Fundamentals;
+using Week1.Homework3;
 
 namespace week1
 {
@@ -14,7 +15,7 @@ namespace week1
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
 
             /*
             Week1Examples();
@@ -22,44 +23,13 @@ namespace week1
             */
 
             //Homework1();            
-            //Homework2();
+            Homework2();
             
             //Week3Examples();
-            //Week3Dinosaurs();            
+            //Week3Dinosaurs();
+            //Week4FundamentalsReview();
 
-            //Fundamentals
-            /*
-              example of calling a static class and its static method, noting
-              that we do not need to instantiate an instance of the class to use it
-            */
-            Console.WriteLine(Utility.AddTwoNumbers(7,6));
-
-
-            //the square has access to the abstract class Shape's properties (ie: square.Sides)
-            Square square = new Square(5,5);
-            square.Sides = 100;
-            Console.WriteLine(square.Area());
-
-
-            //Generics example
-            Dinosaur dino1G = new Dinosaur();
-            Dinosaur dino2G = new Dinosaur();
-            Dinosaur dino3G = new Dinosaur();
-            TRex tRexG      = new TRex();
-            GenericsList<Dinosaur> dinoList = new GenericsList<Dinosaur>();
-            dinoList.Add(dino1G);
-            dinoList.Add(dino2G);
-            dinoList.Add(dino3G);
-            dinoList.Add(tRexG);
-
-
-            //Indexers
-            IndexerSample indexSample = new IndexerSample();
-            
-            for (int i = 0; i < indexSample.Length; i++)
-            {
-                Console.WriteLine(indexSample[i]);
-            }
+            Homework3();
         }
 
         private static void Week1Examples()
@@ -179,6 +149,8 @@ namespace week1
             //demonstrate the use of a FOR loop to iterate through and display integer values
             CountToTen myCount = new CountToTen();
             myCount.CountViaForLoop();
+
+            Console.WriteLine();
         }
 
         private static void Week3Examples()
@@ -288,6 +260,61 @@ namespace week1
             Console.WriteLine(mySquare.Length);
             Console.WriteLine(length);            
              */
+        }
+
+        private static void Week4FundamentalsReview()
+        {
+            //Fundamentals
+            /*
+              example of calling a static class and its static method, noting
+              that we do not need to instantiate an instance of the class to use it
+            */
+            Console.WriteLine(Utility.AddTwoNumbers(7,6));
+
+
+            //the square has access to the abstract class Shape's properties (ie: square.Sides)
+            Square square = new Square(5,5);
+            square.Sides = 100;
+            Console.WriteLine(square.Area());
+
+
+            //Generics example
+            Dinosaur dino1G = new Dinosaur();
+            Dinosaur dino2G = new Dinosaur();
+            Dinosaur dino3G = new Dinosaur();
+            TRex tRexG      = new TRex();
+            GenericsList<Dinosaur> dinoList = new GenericsList<Dinosaur>();
+            dinoList.Add(dino1G);
+            dinoList.Add(dino2G);
+            dinoList.Add(dino3G);
+            dinoList.Add(tRexG);
+
+
+            //Indexers
+            IndexerSample indexSample = new IndexerSample();
+            
+            for (int i = 0; i < indexSample.Length; i++)
+            {
+                Console.WriteLine(indexSample[i]);
+            }
+        }
+
+        private static void Homework3()
+        {
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Homework3 output begins here........");
+            Console.WriteLine("------------------------------------");            
+
+            //Bicycle with default constructor
+            BicycleHW3 myBike3a = new BicycleHW3();
+            myBike3a.Seat = "saddle";
+            Console.WriteLine("My bike has a " + myBike3a.Seat + " seat type.");
+
+            Console.WriteLine();
+
+            //Bicyle with constructor using a parameter
+            BicycleHW3 myBike3b = new BicycleHW3("bullhorn");
+            Console.WriteLine("My bike has " + myBike3b.HandlebarType + " handlebars.");           
         }
     }
 }
