@@ -4,6 +4,7 @@ using week1.week2;
 using Week1.Homework2;
 using week1.Fundamentals;
 using Week1.Homework3;
+using week1.Advanced;
 
 namespace week1
 {
@@ -12,6 +13,9 @@ namespace week1
         /*
         static Dinosaur dino10;  //not instantiated as a Pterodactyl (for 'as'/null example)
          */
+        
+        //Delegate example (Advanced - declaring a delegate variable)
+        public delegate void TryOn(string type);
 
         static void Main(string[] args)
         {
@@ -23,13 +27,52 @@ namespace week1
             */
 
             //Homework1();            
-            Homework2();
-            
+            //Homework2();
+
             //Week3Examples();
             //Week3Dinosaurs();
             //Week4FundamentalsReview();
 
             Homework3();
+
+            //DelegateSample();
+            //MultiDelegateSample();
+            //EventSample();
+
+        }
+
+        //Delegate example (Advanced)
+        private static void DelegateSample()
+        {
+            Hats myHat = new Hats("Cowboy", 7);
+            TryOn theHat = myHat.TryOnHat;
+            theHat("I tried on a " + myHat.HatType + "hat that was size " + myHat.HatSize);
+
+            Hats mySecond = new Hats();
+        }
+
+        //Multicast Delegate example (Advanced)
+        private static void MultiDelegateSample()
+        {
+            Hats moreHats = new Hats(7);
+            TryOn someHats, niceHat, sadHat;
+
+            niceHat = moreHats.FindLuckHat;
+            niceHat("Top");
+
+            sadHat = moreHats.FindUglyHat;
+            sadHat("Dunce");
+
+            someHats = niceHat + sadHat;
+            someHats("Cowboy");
+        }
+
+        //Event sample (Advanced)
+        private static void EventSample()
+        {
+            Coats myCoat = new Coats();       //Instantiate the class
+            string result = myCoat.MyResult;  //Get result from property
+            Console.WriteLine(result);
         }
 
         private static void Week1Examples()
