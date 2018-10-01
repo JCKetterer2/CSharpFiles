@@ -5,6 +5,7 @@ using Week1.Homework2;
 using week1.Fundamentals;
 using Week1.Homework3;
 using week1.Advanced;
+using week1.FINAL;
 
 namespace week1
 {
@@ -33,12 +34,13 @@ namespace week1
             //Week3Dinosaurs();
             //Week4FundamentalsReview();
 
-            Homework3();
+            //Homework3();
 
             //DelegateSample();
             //MultiDelegateSample();
             //EventSample();
 
+            Final();
         }
 
         //Delegate example (Advanced)
@@ -358,6 +360,55 @@ namespace week1
             //Bicyle with constructor using a parameter
             BicycleHW3 myBike3b = new BicycleHW3("bullhorn");
             Console.WriteLine("My bike has " + myBike3b.HandlebarType + " handlebars.");           
+        }
+
+        private static void Final()
+        {
+            GadgetSmall mySmallGadget = new GadgetSmall();
+            WidgetSmall mySmallWidget = new WidgetSmall();
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("-------------  Small Gadget -------------");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Number of Widgets.... " + mySmallGadget.NumOfWidgets
+             + " (each Widget has " + mySmallWidget.NumOfGears + " gears, "
+                                                               + mySmallWidget.NumOfSprings + " springs, and "
+                                                               + mySmallWidget.NumOfLevers + " lever)");
+            Console.WriteLine("Number of Switches... " + mySmallGadget.NumOfSwitches);
+            Console.WriteLine("Number of Buttons.... " + mySmallGadget.NumOfButtons);
+            Console.WriteLine("Number of Lights..... " + mySmallGadget.NumOfLights);
+            Console.WriteLine("Power Source......... " + mySmallGadget.PowerSource);
+
+            Console.WriteLine();
+
+            GadgetMedium myMediumGadget = new GadgetMedium();
+            WidgetMedium myMediumWidget = new WidgetMedium();
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("------------  Medium Gadget -------------");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Number of Widgets.... " + myMediumGadget.NumOfWidgets
+             + " (each Widget has " + myMediumWidget.NumOfGears + " gears, "
+                                                               + myMediumWidget.NumOfSprings + " springs, and "
+                                                               + myMediumWidget.NumOfLevers + " levers)");
+            Console.WriteLine("Number of Switches... " + myMediumGadget.NumOfSwitches);
+            Console.WriteLine("Number of Buttons.... " + myMediumGadget.NumOfButtons);
+            Console.WriteLine("Number of Lights..... " + myMediumGadget.NumOfLights);
+            Console.WriteLine("Power Source......... " + myMediumGadget.PowerSource);
+
+            Console.WriteLine();
+
+            GadgetLarge myLargeGadget = new GadgetLarge();
+            WidgetLarge myLargeWidget = new WidgetLarge();
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("-------------  Large Gadget -------------");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Number of Widgets.... " + myLargeGadget.NumOfWidgets
+             + " (each Widget has " + myLargeWidget.NumOfGears + " gears, "
+                                                               + myLargeWidget.NumOfSprings + " springs, and "
+                                                               + myLargeWidget.NumOfLevers + " levers)");
+            Console.WriteLine("Number of Switches... " + myLargeGadget.NumOfSwitches);
+            Console.WriteLine("Number of Buttons.... " + myLargeGadget.NumOfButtons);
+            Console.WriteLine("Number of Lights..... " + myLargeGadget.NumOfLights);
+            Console.WriteLine("Power Source......... " + myLargeGadget.PowerSource);
         }
     }
 }
