@@ -364,6 +364,35 @@ namespace week1
 
         private static void Final()
         {
+            Console.WriteLine("=============================================================================");
+            Console.WriteLine("============================= WAG Order Form ================================");
+            Console.WriteLine("=============================================================================");
+
+            Console.WriteLine();
+            Console.WriteLine("Please select order type:  (R)etail or (M)anufacturer");
+            Console.WriteLine();
+
+            string userOrderTypeString = Console.ReadLine().ToUpper();
+
+            while ((userOrderTypeString != "M") && (userOrderTypeString != "R"))
+            {
+                Console.WriteLine("You must choose (R) or (M)");
+                userOrderTypeString = Console.ReadLine().ToUpper();
+            }
+
+            Console.Clear();
+
+            Console.WriteLine("=============================================================================");
+            Console.WriteLine("===================== WAG Order Form (main menu) ============================");
+            Console.WriteLine("=============================================================================");
+
+            Console.WriteLine();
+            Console.WriteLine("main menu text............................");
+            Console.WriteLine("main menu text............................");
+            Console.WriteLine("main menu text............................");
+            Console.WriteLine("main menu text............................");
+            Console.WriteLine();
+
             GadgetSmall mySmallGadget = new GadgetSmall();
             WidgetSmall mySmallWidget = new WidgetSmall();
             Console.WriteLine("-----------------------------------------");
