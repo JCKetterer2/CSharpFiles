@@ -40,8 +40,22 @@ namespace week1
             //MultiDelegateSample();
             //EventSample();
 
+            //LambdaSample();
+
             Final();
         }
+
+
+        //Lambda example
+        private static void LambdaSample()
+        {
+            LambdaExamples myLamb = new LambdaExamples();
+            Console.WriteLine(myLamb.MyLambdaOne(5));
+
+            LambdaExamples mySecond = new LambdaExamples(23);
+            Console.WriteLine(mySecond.MyLambdaOne(mySecond.MyValue));
+        }
+
 
         //Delegate example (Advanced)
         private static void DelegateSample()
@@ -50,6 +64,7 @@ namespace week1
             TryOn theHat = myHat.TryOnHat;
             theHat("I tried on a " + myHat.HatType + "hat that was size " + myHat.HatSize);
 
+            //Another version of the delegate, independent of the above example
             Hats mySecond = new Hats();
         }
 
@@ -382,16 +397,12 @@ namespace week1
 
             Console.Clear();
 
-            Console.WriteLine("=============================================================================");
-            Console.WriteLine("===================== WAG Order Form (main menu) ============================");
-            Console.WriteLine("=============================================================================");
+            OrderForm myOrder = new OrderForm();
+            myOrder.UserOrderForm(userOrderTypeString);
 
-            Console.WriteLine();
-            Console.WriteLine("main menu text............................");
-            Console.WriteLine("main menu text............................");
-            Console.WriteLine("main menu text............................");
-            Console.WriteLine("main menu text............................");
-            Console.WriteLine();
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
 
             GadgetSmall mySmallGadget = new GadgetSmall();
             WidgetSmall mySmallWidget = new WidgetSmall();
