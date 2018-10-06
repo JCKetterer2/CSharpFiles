@@ -14,7 +14,7 @@ namespace week1
         /*
         static Dinosaur dino10;  //not instantiated as a Pterodactyl (for 'as'/null example)
          */
-        
+
         //Delegate example (Advanced - declaring a delegate variable)
         public delegate void TryOn(string type);
 
@@ -114,13 +114,13 @@ namespace week1
         {
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Week1 in-class discussion and testing...      ");
-            Console.WriteLine("----------------------------------------------");    
+            Console.WriteLine("----------------------------------------------");
 
             //Use default constructor, creating copy (instance) of Vehicle class
             Vehicle vehicle = new Vehicle();
 
             vehicle.Color = "Blue";
-            
+
             vehicle.WheelType = "Chrome";
             Console.WriteLine(vehicle.WheelType);
 
@@ -143,7 +143,7 @@ namespace week1
         {
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Week2 in-class discussion and testing...      ");
-            Console.WriteLine("----------------------------------------------");    
+            Console.WriteLine("----------------------------------------------");
 
             ReferenceTypes myReferenceType = new ReferenceTypes();
             myReferenceType.JoiningStrings();
@@ -156,7 +156,7 @@ namespace week1
 
             String myTestName1, myTestName2;
             myValueTypesContinue.OutSample("John Doe", out myTestName1, out myTestName2);
-            Console.WriteLine(myTestName1 + ' ' + myTestName2);            
+            Console.WriteLine(myTestName1 + ' ' + myTestName2);
         }
 
         private static void Homework1()
@@ -192,29 +192,29 @@ namespace week1
             Console.WriteLine(myDownhillBike.WheelSpokes);
 
             myMountain.MyMountainColor();
-            myDownhillBike.MyMountainColor();            
-        }                
+            myDownhillBike.MyMountainColor();
+        }
 
         private static void Homework2()
         {
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Homework2 output begins here........");
-            Console.WriteLine("------------------------------------");            
+            Console.WriteLine("------------------------------------");
 
             Console.WriteLine();
 
             Console.WriteLine("Enter grade, noting valid values are:");
             Console.WriteLine("(E)xcellent, (V)ery Good, (G)ood, (A)verage, and (F)ail");
-            
+
             string userGradeInputString = Console.ReadLine().ToUpper();
 
             while (userGradeInputString.Length != 1)
             {
-               Console.WriteLine("Try again.. You must enter ONE character:");
-               userGradeInputString = Console.ReadLine().ToUpper();
+                Console.WriteLine("Try again.. You must enter ONE character:");
+                userGradeInputString = Console.ReadLine().ToUpper();
             }
 
-            char userGradeChar =  Convert.ToChar(userGradeInputString);
+            char userGradeChar = Convert.ToChar(userGradeInputString);
 
             //demonstrate accepting user input and using case statement to evaluate entry
             DetermineGradeDescription myGrade = new DetermineGradeDescription();
@@ -235,7 +235,7 @@ namespace week1
         {
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Week3 in-class discussion and testing...      ");
-            Console.WriteLine("----------------------------------------------");             
+            Console.WriteLine("----------------------------------------------");
 
             AdditonalExamples ae = new AdditonalExamples();
             //ae.CoalescingExample();
@@ -255,7 +255,7 @@ namespace week1
             myStatements.IfStatementChainExample("Turkey");
             myStatements.SwitchStatemntExample("Friday");
             myStatements.ForEachLoopExample();
-        }        
+        }
 
         private static void Week3Dinosaurs()
         {
@@ -292,16 +292,16 @@ namespace week1
             Console.WriteLine("--------------------------------");
             Console.WriteLine("...array and 'is' example.......");
             Console.WriteLine("--------------------------------");
-            Dinosaur[] dinoArray = {dino1, tRex, dino2, dino3};
+            Dinosaur[] dinoArray = { dino1, tRex, dino2, dino3 };
 
             foreach (Dinosaur item in dinoArray)
             {
-                if(item is TRex)
+                if (item is TRex)
                 {
                     item.Eat();
                 }
 
-                if(item is Pterodactyl)
+                if (item is Pterodactyl)
                 {
                     item.Sleep();
                 }
@@ -311,11 +311,9 @@ namespace week1
 
             /*            
             Console.WriteLine(tRex.Size);
-
             Dinosaur.Raptor dino2 = new Dinosaur.Raptor();
             dino2.Skin = true;
             dino2.Eat();
-
             //call default constructor with object initializers (optional parameters, default values)
             Square yourSquare = new Square {Length = 5, Height =5, Color = "Blue"};
             Console.WriteLine("yourSquare Color is " + yourSquare.Color);
@@ -330,7 +328,6 @@ namespace week1
             /*
             Square mySquare = new Square(3, 3);
             var (length, height) = mySquare;
-
             //the following 2 lines are interchageable with the above "var" line, same result
             //int l, w;
             //mySquare.Deconstruct(out l, out w);
@@ -347,11 +344,11 @@ namespace week1
               example of calling a static class and its static method, noting
               that we do not need to instantiate an instance of the class to use it
             */
-            Console.WriteLine(Utility.AddTwoNumbers(7,6));
+            Console.WriteLine(Utility.AddTwoNumbers(7, 6));
 
 
             //the square has access to the abstract class Shape's properties (ie: square.Sides)
-            Square square = new Square(5,5);
+            Square square = new Square(5, 5);
             square.Sides = 100;
             Console.WriteLine(square.Area());
 
@@ -360,7 +357,7 @@ namespace week1
             Dinosaur dino1G = new Dinosaur();
             Dinosaur dino2G = new Dinosaur();
             Dinosaur dino3G = new Dinosaur();
-            TRex tRexG      = new TRex();
+            TRex tRexG = new TRex();
             GenericsList<Dinosaur> dinoList = new GenericsList<Dinosaur>();
             dinoList.Add(dino1G);
             dinoList.Add(dino2G);
@@ -370,7 +367,7 @@ namespace week1
 
             //Indexers
             IndexerSample indexSample = new IndexerSample();
-            
+
             for (int i = 0; i < indexSample.Length; i++)
             {
                 Console.WriteLine(indexSample[i]);
@@ -381,7 +378,7 @@ namespace week1
         {
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Homework3 output begins here........");
-            Console.WriteLine("------------------------------------");            
+            Console.WriteLine("------------------------------------");
 
             //Bicycle with default constructor
             BicycleHW3 myBike3a = new BicycleHW3();
@@ -392,7 +389,7 @@ namespace week1
 
             //Bicyle with constructor using a parameter
             BicycleHW3 myBike3b = new BicycleHW3("bullhorn");
-            Console.WriteLine("My bike has " + myBike3b.HandlebarType + " handlebars.");           
+            Console.WriteLine("My bike has " + myBike3b.HandlebarType + " handlebars.");
         }
 
         private static void Final()
@@ -417,6 +414,12 @@ namespace week1
 
             OrderForm myOrder = new OrderForm();
             myOrder.UserOrderForm(userOrderTypeString);
+            
+            PowerSource selectedPowerSourceMedium = new PowerSource();
+            string power1 = selectedPowerSourceMedium.UserPowerSourceMedium();
+
+            PowerSource selectedPowerSourceLarge = new PowerSource();
+            string power2 = selectedPowerSourceLarge.UserPowerSourceLarge();
 
             Console.WriteLine(" ");
             Console.WriteLine(" ");
@@ -453,7 +456,8 @@ namespace week1
             Console.WriteLine("Number of Switches... " + myMediumGadget.NumOfSwitches);
             Console.WriteLine("Number of Buttons.... " + myMediumGadget.NumOfButtons);
             Console.WriteLine("Number of Lights..... " + myMediumGadget.NumOfLights);
-            Console.WriteLine("Power Source......... " + myMediumGadget.PowerSource);
+            //Console.WriteLine("Power Source......... " + myMediumGadget.PowerSource); //(backup)
+            Console.WriteLine("Power Source......... " + myMediumGadget.ReturnPowerSource(power1));
 
             Console.WriteLine();
 
@@ -469,7 +473,8 @@ namespace week1
             Console.WriteLine("Number of Switches... " + myLargeGadget.NumOfSwitches);
             Console.WriteLine("Number of Buttons.... " + myLargeGadget.NumOfButtons);
             Console.WriteLine("Number of Lights..... " + myLargeGadget.NumOfLights);
-            Console.WriteLine("Power Source......... " + myLargeGadget.PowerSource);
+            //Console.WriteLine("Power Source......... " + myLargeGadget.PowerSource); //(backup)
+            Console.WriteLine("Power Source......... " + myLargeGadget.ReturnPowerSource(power2)); 
 
             Console.WriteLine(" ");
             Console.WriteLine(" ");

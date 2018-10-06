@@ -32,10 +32,10 @@ namespace week1.FINAL
             myWidgets.Add(new WidgetSmall());
             myWidgets.Add(new WidgetMedium());
 
-            foreach (Widget myCrap in myWidgets)
+            foreach (Widget myStuff in myWidgets)
             {
                 //Console.WriteLine(dinosaur);
-                Console.WriteLine("My Order = " + myCrap);
+                Console.WriteLine("My Order = " + myStuff);
             }
 
             /*

@@ -11,6 +11,11 @@ namespace week1.FINAL
         public override int NumOfSwitches { get; set; } = 1;
         public override int NumOfButtons  { get; set; } = 3;
         public override int NumOfLights   { get; set; } = 3;
+
+        public string _powerSource = "";  //TO-DO: will add user ability to choose power source ("Battery or Solar")
+
+
+        /* (backup)
         private string _powerSource = "Battery or Solar";  //TO-DO: will add user ability to choose power source
 
         public new string PowerSource
@@ -18,6 +23,19 @@ namespace week1.FINAL
             get
             {
                 return _powerSource;
+            }
+        }
+        */
+
+        public string ReturnPowerSource (string userEnteredPower)
+        {
+            if (userEnteredPower == "B")
+            {
+                return "Battery";
+            }
+            else
+            {
+                return "Solar";
             }
         }
     }

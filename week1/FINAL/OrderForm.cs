@@ -18,7 +18,7 @@ namespace week1.FINAL
         private const string _retailOrder       = "R";
         private const string _manufacturerOrder = "M";
 
-        public void UserOrderForm(string userChoice)
+        public string UserOrderForm(string userChoice)
         {
             if(userChoice == _retailOrder)
             {
@@ -60,6 +60,8 @@ namespace week1.FINAL
                     Console.WriteLine("You must choose (S), (M), or (L)");
                     userGadgetSize = Console.ReadLine().ToUpper();
                 }
+
+                return userGadgetSize;
             }
             else
             {
@@ -71,6 +73,8 @@ namespace week1.FINAL
                 Console.WriteLine();
                 Console.WriteLine("................stuff....................");
                 Console.WriteLine();
+
+                return "help";
             }
 
         }
