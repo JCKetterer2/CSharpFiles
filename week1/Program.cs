@@ -479,17 +479,17 @@ namespace week1
             Console.WriteLine(" ");
 
             WidgetSmall mySmallWidget1 = new WidgetSmall();
-            mySmallWidget1.DisplaySmallWidgetComponents();  //this works because WidgetSmall.cs automatically inherits from the abstract Widget.cs
+            mySmallWidget1.DisplaySmallWidgetComponents();     //this works because WidgetSmall.cs automatically inherits from the abstract Widget.cs
             Console.WriteLine();
             Console.WriteLine();
 
             WidgetMedium myMediumWidget1 = new WidgetMedium();
-            myMediumWidget1.DisplayMediumWidgetComponents();
+            myMediumWidget1.DisplayMediumWidgetComponents();   //this works because WidgetMedium.cs automatically inherits from the abstract Widget.cs
             Console.WriteLine();
             Console.WriteLine();
 
             WidgetLarge myLargeWidget1 = new WidgetLarge();
-            myLargeWidget1.DisplayLargeWidgetComponents();
+            myLargeWidget1.DisplayLargeWidgetComponents();     //this works because WidgetLarge.cs automatically inherits from the abstract Widget.cs
             Console.WriteLine();
             Console.WriteLine();
 

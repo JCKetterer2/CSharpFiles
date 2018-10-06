@@ -26,7 +26,7 @@ namespace week1.FINAL
             }
             get
             {
-                return base._numOfGearsSmall;
+                return _numOfGearsSmall;
             }
         }
 
@@ -50,7 +50,7 @@ namespace week1.FINAL
             }
             get
             {
-                return base._numOfLeversSmall;
+                return _numOfLeversSmall;
             }
         }
     }

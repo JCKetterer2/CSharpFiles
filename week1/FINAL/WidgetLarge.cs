@@ -14,7 +14,7 @@ namespace week1.FINAL
     }
     */
 
-    public class WidgetLarge : WidgetSmall
+    public class WidgetLarge : Widget
     {
         /* (backup)
         //Override auto properties with new default values
@@ -23,9 +23,45 @@ namespace week1.FINAL
         public override int NumOfLevers  { get; set; } = 2;
         */
 
-        //Override auto properties with new default values
-        public override int NumOfGears { get; set; }
-        public override int NumOfSprings { get; set; }
-        public override int NumOfLevers { get; set; }
+        public WidgetLarge()
+        {
+            //Console.WriteLine("WidgetLarge default constructor");
+        }
+
+        public virtual int NumOfGears
+        {
+            set
+            {
+                this._numOfGearsLarge = value;
+            }
+            get
+            {
+                return _numOfGearsLarge;
+            }
+        }
+
+        public virtual int NumOfSprings
+        {
+            set
+            {
+                this._numOfSpringsLarge = value;
+            }
+            get
+            {
+                return _numOfSpringsLarge;
+            }
+        }
+
+        public virtual int NumOfLevers
+        {
+            set
+            {
+                this._numOfLeversLarge = value;
+            }
+            get
+            {
+                return _numOfLeversLarge;
+            }
+        }
     }
 }

@@ -14,11 +14,47 @@ namespace week1.FINAL
     }
     */
 
-    public class WidgetMedium : WidgetSmall
+    public class WidgetMedium : Widget
     {
-        //Override auto properties with new default values
-        public override int NumOfGears   { get; set; }
-        public override int NumOfSprings { get; set; }
-        public override int NumOfLevers  { get; set; }
+        public WidgetMedium()
+        {
+            //Console.WriteLine("WidgetMedium default constructor");
+        }
+
+        public virtual int NumOfGears
+        {
+            set
+            {
+                this._numOfGearsMedium = value;
+            }
+            get
+            {
+                return _numOfGearsMedium;
+            }
+        }
+
+        public virtual int NumOfSprings
+        {
+            set
+            {
+                this._numOfSpringsMedium = value;
+            }
+            get
+            {
+                return _numOfSpringsMedium;
+            }
+        }
+
+        public virtual int NumOfLevers
+        {
+            set
+            {
+                this._numOfLeversMedium = value;
+            }
+            get
+            {
+                return _numOfLeversMedium;
+            }
+        }
     }
 }
