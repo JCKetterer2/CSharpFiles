@@ -5,7 +5,6 @@ namespace week1.Fundamentals
     public class Dinosaur
     {
         private string _teeth;
-        private string _something;
         private int _size;
 
         protected string Color { set; get; } = "Green";  // set default color for Dinosaur, accessible to Dinosaur children

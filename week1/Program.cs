@@ -42,9 +42,27 @@ namespace week1
 
             //LambdaSample();
 
+            //ExceptionSample();
+            //CollectionSample();
+
             Final();
         }
 
+        private static void CollectionSample()
+        {
+            CollectionExamples mySample = new CollectionExamples();
+
+            //mySample.MyArrayListExample();
+            mySample.MyListExample();
+        }
+
+        private static void ExceptionSample()
+        {
+            ExceptionExamples examples = new ExceptionExamples();
+            //examples.MyException();
+            //examples.MySecondExample();
+            examples.MyThirdExample();
+        }
 
         //Lambda example
         private static void LambdaSample()
@@ -403,6 +421,9 @@ namespace week1
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
 
             GadgetSmall mySmallGadget = new GadgetSmall();
             WidgetSmall mySmallWidget = new WidgetSmall();
@@ -449,6 +470,31 @@ namespace week1
             Console.WriteLine("Number of Buttons.... " + myLargeGadget.NumOfButtons);
             Console.WriteLine("Number of Lights..... " + myLargeGadget.NumOfLights);
             Console.WriteLine("Power Source......... " + myLargeGadget.PowerSource);
+
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+
+            WidgetSmall mySmallWidget1 = new WidgetSmall();
+            mySmallWidget1.DisplaySmallWidgetComponents();  //this works because WidgetSmall.cs automatically inherits from the abstract Widget.cs
+            Console.WriteLine();
+            Console.WriteLine();
+
+            WidgetMedium myMediumWidget1 = new WidgetMedium();
+            myMediumWidget1.DisplayMediumWidgetComponents();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            WidgetLarge myLargeWidget1 = new WidgetLarge();
+            myLargeWidget1.DisplayLargeWidgetComponents();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            OrderCart myCurrentOrder = new OrderCart();
+            myCurrentOrder.MyOrderCart();
         }
     }
 }

@@ -4,21 +4,29 @@ using System.Text;
 
 namespace week1.FINAL
 {
-    public class WidgetSmall
+    //note that medium and large should implement Widget and not WidgetSmall.cs
+    public class WidgetSmall : Widget
     {
-        private int _numOfGears   = 2;
-        private int _numOfSprings = 3;
-        private int _numOfLevers  = 1;
+        /* (backup) value n/a to be set here?
+        private new int _numOfGears;
+        private new int _numOfSprings;
+        private new int _numOfLevers;
+        */
+
+        public WidgetSmall()
+        {
+            //Console.WriteLine("WidgetSmall default constructor");
+        }
 
         public virtual int NumOfGears
         {
             set
             {
-                this._numOfGears = value;
+                this._numOfGearsSmall = value;
             }
             get
             {
-                return _numOfGears;
+                return base._numOfGearsSmall;
             }
         }
 
@@ -26,11 +34,11 @@ namespace week1.FINAL
         {
             set
             {
-                this._numOfSprings = value;
+                this._numOfSpringsSmall = value;
             }
             get
             {
-                return _numOfSprings;
+                return _numOfSpringsSmall;
             }
         }
 
@@ -38,11 +46,11 @@ namespace week1.FINAL
         {
             set
             {
-                this._numOfLevers = value;
+                this._numOfLeversSmall = value;
             }
             get
             {
-                return _numOfLevers;
+                return base._numOfLeversSmall;
             }
         }
     }

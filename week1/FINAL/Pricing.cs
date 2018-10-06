@@ -11,10 +11,10 @@ namespace week1.FINAL
         private double _buttonCostPerUnit    = 20.87;
         private double _lightCostPerUnit     = 30.76;
 
-        //Widget Components
-        private double _gearCostPerUnit      = 12.65;
-        private double _springCostPerUnit    = 14.54;
-        private double _leverCostPerUnit     = 16.43;
+        //Widget Cost per Size
+        private double _smallWidget          = 12.65;
+        private double _mediumWidget         = 14.54;
+        private double _largeWidget          = 16.43;
 
         //Power Supplies
         private double _batteryCostPerUnit   = 500.32;
@@ -58,39 +58,39 @@ namespace week1.FINAL
             }
         }
 
-        public virtual double GearCostPerUnit
+        public virtual double SmallWidgetCost
         {
             set
             {
-                this._gearCostPerUnit = value;
+                this._smallWidget = value;
             }
             get
             {
-                return _gearCostPerUnit;
+                return _smallWidget;
             }
         }
 
-        public virtual double SpringCostPerUnit
+        public virtual double MediumWidgetCost
         {
             set
             {
-                this._springCostPerUnit = value;
+                this._mediumWidget = value;
             }
             get
             {
-                return _springCostPerUnit;
+                return _mediumWidget;
             }
         }
 
-        public virtual double LeverCostPerUnit
+        public virtual double LargeWidgetCost
         {
             set
             {
-                this._leverCostPerUnit = value;
+                this._largeWidget = value;
             }
             get
             {
-                return _leverCostPerUnit;
+                return _largeWidget;
             }
         }
 
