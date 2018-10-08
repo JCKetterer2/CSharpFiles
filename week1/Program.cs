@@ -416,10 +416,23 @@ namespace week1
             myOrder.UserOrderForm(userOrderTypeString);
 
 
+            string userGadgetSizeEntered = "";
+            switch (myOrder.userGadgetSizeReturn)
+            {
+                case "S":
+                    userGadgetSizeEntered = "Small";
+                    break;
 
-            
+                case "M":
+                    userGadgetSizeEntered = "Medium";
+                    break;
+
+                case "L":
+                    userGadgetSizeEntered = "Large";
+                    break;
+            }
             Console.WriteLine();
-            Console.WriteLine("Place order for how many Gadgets? ");
+            Console.WriteLine("Place order for how many " + userGadgetSizeEntered + " Gadgets ? ");
             Console.WriteLine();
             /*
             try
@@ -514,15 +527,28 @@ namespace week1
             Console.WriteLine(" ");
             Console.WriteLine(" ");
 
+
             OrderCart myCurrentOrder = new OrderCart();
             myCurrentOrder.MyOrderCart(numUserGadgetsEntered, powerSelection);
+
+
+            //!!!djck!!!
+            //!!!djck!!!
+            DisplayPricing myPriceDisplay = new DisplayPricing();
+            myPriceDisplay.DisplayCurrentOrder(myOrder.userGadgetSizeReturn, numUserGadgetsEntered, powerSelection);
+
+            //Calculate myOrderCalulation = new Calculate();
+            //!!!djck!!!
+            //!!!djck!!!
+
+
 
             Console.WriteLine();
             Console.WriteLine("Press ENTER to continue with another order, or Q + ENTER to quit...");
             Console.WriteLine();
 
             string userInput = Console.ReadLine().ToUpper();
-            if(userInput == "Q")
+            if (userInput == "Q")
             {
                 Environment.Exit(0);
             }

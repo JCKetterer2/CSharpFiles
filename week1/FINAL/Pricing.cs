@@ -11,16 +11,15 @@ namespace week1.FINAL
         private double _buttonCostPerUnit    = 20.87;
         private double _lightCostPerUnit     = 30.76;
 
-        //Widget Cost per Size
-        private double _smallWidget          = 12.65;
-        private double _mediumWidget         = 14.54;
-        private double _largeWidget          = 16.43;
-
         //Power Supplies
         private double _batteryCostPerUnit   = 500.32;
         private double _solarCostPerUnit     = 900.21;
         private double _generatorCostPerUnit = 1100.10;
 
+        //Widget Cost per Size
+        private double _smallWidget          = 12.65;
+        private double _mediumWidget         = 14.54;
+        private double _largeWidget          = 16.43;
 
         public virtual double SwitchCostPerUnit
         {

@@ -9,7 +9,7 @@ namespace week1.FINAL
         public string UserPowerSourceMedium()
         {
             Console.WriteLine();
-            Console.WriteLine("Please select power source for Medium Gadget:  (B)attery or (S)olar");
+            Console.WriteLine("Please select power source for Medium Gadget(s):  (B)attery or (S)olar");
             Console.WriteLine();
 
             string userPowerSourceString = Console.ReadLine().ToUpper();
@@ -26,7 +26,7 @@ namespace week1.FINAL
         public string UserPowerSourceLarge()
         {
             Console.WriteLine();
-            Console.WriteLine("Please select power source for Large Gadget:  (G)enerator or (S)olar");
+            Console.WriteLine("Please select power source for Large Gadget(s):  (G)enerator or (S)olar");
             Console.WriteLine();
 
             string userPowerSourceString = Console.ReadLine().ToUpper();

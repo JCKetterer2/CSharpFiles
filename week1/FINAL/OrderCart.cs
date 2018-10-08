@@ -11,7 +11,26 @@ namespace week1.FINAL
         //Variables include # of Gadgets, Power Source, and Finish Option
         public void MyOrderCart(int numUserGadgetsEntered, string powerSelection)
         {
-            Console.WriteLine("You ordered " + numUserGadgetsEntered + " gadgets, having power source of " + powerSelection);
+            string powerSelectionString = ""; 
+
+            switch (powerSelection)
+            {
+                case "B":
+                    powerSelectionString = "Battery";
+                    break;
+
+                case "S":
+                    powerSelectionString = "Solar";
+                    break;
+
+                case "G":
+                    powerSelectionString = "Generator";
+                    break;
+            }
+
+            Console.WriteLine("You ordered " + numUserGadgetsEntered + " gadget(s), having power source of " + powerSelectionString);
+            Console.WriteLine("Order summary is as follows:");
+            Console.WriteLine("\n\n");
 
             /*
             List<Widget> myWidgets = new List<Widget>();
