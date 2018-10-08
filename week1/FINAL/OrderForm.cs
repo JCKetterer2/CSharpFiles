@@ -18,6 +18,8 @@ namespace week1.FINAL
         private const string _retailOrder       = "R";
         private const string _manufacturerOrder = "M";
 
+        public string userGadgetSizeReturn = "";
+
         public string UserOrderForm(string userChoice)
         {
             if(userChoice == _retailOrder)
@@ -61,6 +63,7 @@ namespace week1.FINAL
                     userGadgetSize = Console.ReadLine().ToUpper();
                 }
 
+                userGadgetSizeReturn = userGadgetSize;
                 return userGadgetSize;
             }
             else

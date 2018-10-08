@@ -414,69 +414,48 @@ namespace week1
 
             OrderForm myOrder = new OrderForm();
             myOrder.UserOrderForm(userOrderTypeString);
-            
-            PowerSource selectedPowerSourceMedium = new PowerSource();
-            string power1 = selectedPowerSourceMedium.UserPowerSourceMedium();
 
-            PowerSource selectedPowerSourceLarge = new PowerSource();
-            string power2 = selectedPowerSourceLarge.UserPowerSourceLarge();
 
+            //are these variables needed?
+            string powerMediumSelected = "";
+            string powerLargeSelected = "";
+
+            OrderCheckOut myCheckOut = new OrderCheckOut();
+
+            switch (myOrder.userGadgetSizeReturn)
+            {
+                case "S":
+                    //myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn);
+                    myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, "B");
+                    break;
+
+                case "M":
+                    PowerSource selectedPowerSourceMedium = new PowerSource();
+                    string powerMedium = selectedPowerSourceMedium.UserPowerSourceMedium();
+                    powerMediumSelected = powerMedium;
+
+                    //myCheckOut.DisplayOrder(powerMediumSelected);
+                    myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, powerMediumSelected);
+                    break;
+
+                case "L":
+                    PowerSource selectedPowerSourceLarge = new PowerSource();
+                    string powerLarge = selectedPowerSourceLarge.UserPowerSourceLarge();
+                    powerLargeSelected = powerLarge;
+
+                    //myCheckOut.DisplayOrder(powerLargeSelected);
+                    myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, powerLargeSelected);
+                    break;
+            }
+
+
+
+            Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
-            Console.WriteLine(" ");
-            Console.WriteLine(" ");
 
-            GadgetSmall mySmallGadget = new GadgetSmall();
-            WidgetSmall mySmallWidget = new WidgetSmall();
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("-------------  Small Gadget -------------");
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Number of Widgets.... " + mySmallGadget.NumOfWidgets
-             + " (each Widget has " + mySmallWidget.NumOfGears + " gears, "
-                                                               + mySmallWidget.NumOfSprings + " springs, and "
-                                                               + mySmallWidget.NumOfLevers + " lever)");
-            Console.WriteLine("Number of Switches... " + mySmallGadget.NumOfSwitches);
-            Console.WriteLine("Number of Buttons.... " + mySmallGadget.NumOfButtons);
-            Console.WriteLine("Number of Lights..... " + mySmallGadget.NumOfLights);
-            Console.WriteLine("Power Source......... " + mySmallGadget.PowerSource);
-
-            Console.WriteLine();
-
-            GadgetMedium myMediumGadget = new GadgetMedium();
-            WidgetMedium myMediumWidget = new WidgetMedium();
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("------------  Medium Gadget -------------");
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Number of Widgets.... " + myMediumGadget.NumOfWidgets
-             + " (each Widget has " + myMediumWidget.NumOfGears + " gears, "
-                                                               + myMediumWidget.NumOfSprings + " springs, and "
-                                                               + myMediumWidget.NumOfLevers + " levers)");
-            Console.WriteLine("Number of Switches... " + myMediumGadget.NumOfSwitches);
-            Console.WriteLine("Number of Buttons.... " + myMediumGadget.NumOfButtons);
-            Console.WriteLine("Number of Lights..... " + myMediumGadget.NumOfLights);
-            //Console.WriteLine("Power Source......... " + myMediumGadget.PowerSource); //(backup)
-            Console.WriteLine("Power Source......... " + myMediumGadget.ReturnPowerSource(power1));
-
-            Console.WriteLine();
-
-            GadgetLarge myLargeGadget = new GadgetLarge();
-            WidgetLarge myLargeWidget = new WidgetLarge();
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("-------------  Large Gadget -------------");
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Number of Widgets.... " + myLargeGadget.NumOfWidgets
-             + " (each Widget has " + myLargeWidget.NumOfGears + " gears, "
-                                                               + myLargeWidget.NumOfSprings + " springs, and "
-                                                               + myLargeWidget.NumOfLevers + " levers)");
-            Console.WriteLine("Number of Switches... " + myLargeGadget.NumOfSwitches);
-            Console.WriteLine("Number of Buttons.... " + myLargeGadget.NumOfButtons);
-            Console.WriteLine("Number of Lights..... " + myLargeGadget.NumOfLights);
-            //Console.WriteLine("Power Source......... " + myLargeGadget.PowerSource); //(backup)
-            Console.WriteLine("Power Source......... " + myLargeGadget.ReturnPowerSource(power2)); 
-
-            Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
