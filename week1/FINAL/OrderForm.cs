@@ -70,7 +70,7 @@ namespace week1.FINAL
             {
                 Console.WriteLine("=============================================================================");
                 Console.WriteLine("============================= WAG Order Form ================================");
-                Console.WriteLine("=============== ========  MANUFACTURER MAIN MENU ============================");
+                Console.WriteLine("========================  MANUFACTURER MAIN MENU ============================");
                 Console.WriteLine("=============================================================================");
 
                 Console.WriteLine();

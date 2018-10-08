@@ -8,26 +8,12 @@ namespace week1.FINAL
 {
     public class OrderCart
     {
-        /*
-        public void MyOrderCart()
+        //Variables include # of Gadgets, Power Source, and Finish Option
+        public void MyOrderCart(int numUserGadgetsEntered, string powerSelection)
         {
-            ArrayList myOrder = new ArrayList();
-            myOrder.Add(GadgetLarge);
-            
+            Console.WriteLine("You ordered " + numUserGadgetsEntered + " gadgets, having power source of " + powerSelection);
 
-            Console.WriteLine("Count = " + myOrder.Count);
-
-            foreach (Object obj in myOrder)
-            {
-                Console.WriteLine("type = " + obj);
-            }
-        }
-        */
-
-        
-       
-        public void MyOrderCart()
-        {
+            /*
             List<Widget> myWidgets = new List<Widget>();
             myWidgets.Add(new WidgetSmall());
             myWidgets.Add(new WidgetMedium());
@@ -37,6 +23,7 @@ namespace week1.FINAL
                 //Console.WriteLine(dinosaur);
                 Console.WriteLine("My Order = " + myStuff);
             }
+            */
 
             /*
             List<Dinosaur> myDinos = new List<Dinosaur>();

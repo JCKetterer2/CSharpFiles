@@ -416,9 +416,39 @@ namespace week1
             myOrder.UserOrderForm(userOrderTypeString);
 
 
+
+            
+            Console.WriteLine();
+            Console.WriteLine("Place order for how many Gadgets? ");
+            Console.WriteLine();
+            /*
+            try
+            {
+                int numUserGadgetsEntered = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("That's not a number!");
+            }
+            */
+            int numUserGadgetsEntered;
+
+            String Result = Console.ReadLine();
+
+            while (!Int32.TryParse(Result, out numUserGadgetsEntered))
+            {
+                Console.WriteLine("Not a valid number, try again.");
+
+                Result = Console.ReadLine();
+            }
+
+
+
+
             //are these variables needed?
             string powerMediumSelected = "";
             string powerLargeSelected = "";
+            string powerSelection = "";
 
             OrderCheckOut myCheckOut = new OrderCheckOut();
 
@@ -427,6 +457,7 @@ namespace week1
                 case "S":
                     //myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn);
                     myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, "B");
+                    powerSelection = "B";
                     break;
 
                 case "M":
@@ -434,6 +465,7 @@ namespace week1
                     string powerMedium = selectedPowerSourceMedium.UserPowerSourceMedium();
                     powerMediumSelected = powerMedium;
 
+                    powerSelection = powerMedium;
                     //myCheckOut.DisplayOrder(powerMediumSelected);
                     myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, powerMediumSelected);
                     break;
@@ -443,13 +475,14 @@ namespace week1
                     string powerLarge = selectedPowerSourceLarge.UserPowerSourceLarge();
                     powerLargeSelected = powerLarge;
 
+                    powerSelection = powerLarge;
                     //myCheckOut.DisplayOrder(powerLargeSelected);
                     myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, powerLargeSelected);
                     break;
             }
 
 
-
+            /*
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
@@ -476,9 +509,28 @@ namespace week1
             myLargeWidget1.DisplayLargeWidgetComponents();     //this works because WidgetLarge.cs automatically inherits from the abstract Widget.cs
             Console.WriteLine();
             Console.WriteLine();
+            */
+
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
 
             OrderCart myCurrentOrder = new OrderCart();
-            myCurrentOrder.MyOrderCart();
+            myCurrentOrder.MyOrderCart(numUserGadgetsEntered, powerSelection);
+
+            Console.WriteLine();
+            Console.WriteLine("Press ENTER to continue with another order, or Q + ENTER to quit...");
+            Console.WriteLine();
+
+            string userInput = Console.ReadLine().ToUpper();
+            if(userInput == "Q")
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.Clear();
+                Final();
+            }
         }
     }
 }
