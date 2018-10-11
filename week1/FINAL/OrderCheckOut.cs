@@ -12,7 +12,7 @@ namespace week1.FINAL
 
             switch (sizeSelected)
             {
-                case "S":
+                case "Small":
                     Console.WriteLine(" ");
 
                     GadgetSmall mySmallGadget = new GadgetSmall();
@@ -31,7 +31,7 @@ namespace week1.FINAL
                     Console.WriteLine("Power Source......... " + mySmallGadget.PowerSource);
                     break;
 
-                case "M":
+                case "Medium":
                     Console.WriteLine();
 
                     GadgetMedium myMediumGadget = new GadgetMedium();
@@ -51,7 +51,7 @@ namespace week1.FINAL
                     Console.WriteLine("Power Source......... " + myMediumGadget.ReturnPowerSource(powerSelected));
                     break;
 
-                case "L":
+                case "Large":
                     Console.WriteLine();
 
                     GadgetLarge myLargeGadget = new GadgetLarge();

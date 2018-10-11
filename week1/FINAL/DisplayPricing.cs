@@ -12,7 +12,7 @@ namespace week1.FINAL
 
             switch (size)
             {
-                case "S":
+                case "Small":
                     GadgetSmall mySmallGadget = new GadgetSmall();
 
                     Console.WriteLine("Widget (cost per unit * unit-per-gadget-size * number of units purchased)");
@@ -44,11 +44,11 @@ namespace week1.FINAL
                     Console.WriteLine("Subtotal = " + (mySmallWidgetCost + mySmallSwitchCost + mySmallButtonCost + mySmallLightCost + mySmallBatteryCost).ToString("C"));
                     break;
 
-                case "M":
+                case "Medium":
                     GadgetMedium myMediumGadget = new GadgetMedium();
 
                     Console.WriteLine("Widget (cost per unit * unit-per-gadget-size * number of units purchased)");
-                    Console.WriteLine("  - Medium Widget .... " + myPrices.MediumWidgetCost + " * " + myMediumGadget.NumOfWidgets + " * " + numberOfUnits + " = "
+                    Console.WriteLine("  - Medium Widget ... " + myPrices.MediumWidgetCost + " * " + myMediumGadget.NumOfWidgets + " * " + numberOfUnits + " = "
                         + (myPrices.MediumWidgetCost * myMediumGadget.NumOfWidgets * numberOfUnits).ToString("F2"));
                     double myMediumWidgetCost = myPrices.MediumWidgetCost * myMediumGadget.NumOfWidgets * numberOfUnits;
                     Console.WriteLine();
@@ -91,7 +91,7 @@ namespace week1.FINAL
                         break;
                     }
 
-                case "L":
+                case "Large":
                     GadgetLarge myLargeGadget = new GadgetLarge();
 
                     Console.WriteLine("Widget (cost per unit * unit-per-gadget-size * number of units purchased)");
@@ -129,7 +129,7 @@ namespace week1.FINAL
                     {
                         Console.WriteLine();
                         Console.WriteLine("Power Supplies (cost per unit * number of units purchased)");
-                        Console.WriteLine("  - Solar ..--....... " + myPrices.SolarCostPerUnit + " * " + numberOfUnits + " = "
+                        Console.WriteLine("  - Solar ........... " + myPrices.SolarCostPerUnit + " * " + numberOfUnits + " = "
                             + myPrices.SolarCostPerUnit * numberOfUnits);
                         double myLargeSolarCost = (myPrices.SolarCostPerUnit * numberOfUnits);
 

@@ -6,23 +6,12 @@ namespace week1.FINAL
 {
     public class OrderForm
     {
-        /*  (menu notes)
-            A = Add to order
-            C = Show current order
-            U = update order
-            P = process order
-            R = restart order
-            X = exit order
-        */
-
         private const string _retailOrder       = "R";
         private const string _manufacturerOrder = "M";
 
-        public string userGadgetSizeReturn = "";
-
-        public string UserOrderForm(string userChoice)
+        public void UserOrderForm(string userOrderType)
         {
-            if(userChoice == _retailOrder)
+            if(userOrderType == _retailOrder)
             {
                 Console.WriteLine("=============================================================================");
                 Console.WriteLine("============================= WAG Order Form ================================");
@@ -51,20 +40,6 @@ namespace week1.FINAL
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("* Any of the above come with your choice of finish -- Plain, Painted, or Plated");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Please enter SIZE of Gadget:  (S)mall, (M)edium, or (L)arge");
-
-                string userGadgetSize = Console.ReadLine().ToUpper();
-
-                while ((userGadgetSize != "S") && (userGadgetSize != "M") && (userGadgetSize != "L"))
-                {
-                    Console.WriteLine("You must choose (S), (M), or (L)");
-                    userGadgetSize = Console.ReadLine().ToUpper();
-                }
-
-                userGadgetSizeReturn = userGadgetSize;
-                return userGadgetSize;
             }
             else
             {
@@ -74,10 +49,8 @@ namespace week1.FINAL
                 Console.WriteLine("=============================================================================");
 
                 Console.WriteLine();
-                Console.WriteLine("................stuff....................");
+                Console.WriteLine("................Jacob's stuff....................");
                 Console.WriteLine();
-
-                return "help";
             }
 
         }

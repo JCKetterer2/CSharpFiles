@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Week1.Homework1b;
 using week1.week2;
 using Week1.Homework2;
@@ -45,7 +47,91 @@ namespace week1
             //ExceptionSample();
             //CollectionSample();
 
+            //ThreadingSample();
+            //ThreadingSample2();
+            //ThreadingReturnSample();
+
+            //SimpleTaskExample();
+            //MyAsyncExample();
+
             Final();
+        }
+
+        private async static void MyAsyncExample()    
+        {
+            //bottles of beer song
+            /*
+            AsyncUtility myUtility = new AsyncUtility();
+            string myWord = await myUtility.BottlesOfBeerSongAsync();
+            Console.WriteLine(myWord);
+            */
+
+            // API call within AsyncUtility
+            // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+            //
+            AsyncUtility myAPI = new AsyncUtility();
+            int myNum = await myAPI.AccessTheWebAsync();
+            Console.WriteLine(myNum);
+
+        }
+
+        private static void SimpleTaskExample()
+        {
+            Thread.CurrentThread.Name = "Main";
+
+            //Create a task and supply a user delegate by using a lambda expression
+            Task task = new Task(() => Console.WriteLine("Hello from task."));
+            //Define a run with Task
+            //Task task = Task.Run(() => Console.WriteLine("Hello from task."));
+
+            //Start the task
+            task.Start();
+            //Output a message from the calling thread.
+            Console.WriteLine("Hello from thread '{0}'.", Thread.CurrentThread.Name);  //from MAIN thread
+            task.Wait();
+        }
+
+        private static void ThreadingSample()
+        {
+            //Call two existing methods from here with one in a thread and the other without.
+            //If not specified, processes run on "main thread".
+            //Asynchronous puts processes on other threads so "maint thread" does not get locked.
+            //Output is inter-mingled.
+            //Notice the method within parenthesis instead of something like this -- new Thread Week3Dinosaurs();
+            Thread thread = new Thread(Week3Dinosaurs);
+            thread.Start();
+
+            Week1Examples();
+        }
+        
+        private static void ThreadingSample2()
+        {
+            //Calling constructor with value using Thread two ways
+            ThreadingExample myExample = new ThreadingExample();
+
+            //Thread thread = new Thread(() => myExample.SimpleMethod(100));   //lambda expression
+            //thread.Start();
+
+            // ...or the older implementation
+            Thread secondThread = new Thread(myExample.DifferentMethod);
+            secondThread.Start("I see");
+        }
+
+        //The callback method must match the signature of the callback delegate
+        public static void ResultCallback(int lineCount)
+        {
+            Console.WriteLine("Independent task printed {0} lines.", lineCount);
+        }
+
+        private static void ThreadingReturnSample()
+        {
+            ThreadWithState tws = new ThreadWithState("This report displays the number {0}.", 42,
+                new ExampleCallback(ResultCallback));
+            Thread t = new Thread(new ThreadStart(tws.ThreadProc));
+            t.Start();
+            Console.WriteLine("Main thread does some work, then waits.");
+            t.Join();
+            Console.WriteLine("Independent task has completed; main thread ends.");
         }
 
         private static void CollectionSample()
@@ -394,30 +480,28 @@ namespace week1
 
         private static void Final()
         {
-            Console.WriteLine("=============================================================================");
-            Console.WriteLine("============================= WAG Order Form ================================");
-            Console.WriteLine("=============================================================================");
+            /*
+             * Display the WAG welcome, and prompt
+             * the user to choose the order type
+            */
+            WagIntro myWagIntro = new WagIntro();
+            string userOrderType = myWagIntro.OrderType();
 
-            Console.WriteLine();
-            Console.WriteLine("Please select order type:  (R)etail or (M)anufacturer");
-            Console.WriteLine();
 
-            string userOrderTypeString = Console.ReadLine().ToUpper();
-
-            while ((userOrderTypeString != "M") && (userOrderTypeString != "R"))
-            {
-                Console.WriteLine("You must choose (R) or (M)");
-                userOrderTypeString = Console.ReadLine().ToUpper();
-            }
-
-            Console.Clear();
-
+            /*
+             * Display the order form details 
+            */
             OrderForm myOrder = new OrderForm();
-            myOrder.UserOrderForm(userOrderTypeString);
+            myOrder.UserOrderForm(userOrderType);
 
 
-            string userGadgetSizeEntered = "";
-            switch (myOrder.userGadgetSizeReturn)
+            /* 
+             * Prompt user for Gadget size
+            */
+            GadgetSizeChoice myGadgetSize = new GadgetSizeChoice();
+            string userGadgetSizeEntered = myGadgetSize.ChooseGadgetSize();
+
+            switch (userGadgetSizeEntered)
             {
                 case "S":
                     userGadgetSizeEntered = "Small";
@@ -434,20 +518,12 @@ namespace week1
             Console.WriteLine();
             Console.WriteLine("Place order for how many " + userGadgetSizeEntered + " Gadgets ? ");
             Console.WriteLine();
-            /*
-            try
-            {
-                int numUserGadgetsEntered = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine("That's not a number!");
-            }
-            */
+
+
             int numUserGadgetsEntered;
 
             String Result = Console.ReadLine();
-
+            
             while (!Int32.TryParse(Result, out numUserGadgetsEntered))
             {
                 Console.WriteLine("Not a valid number, try again.");
@@ -455,9 +531,18 @@ namespace week1
                 Result = Console.ReadLine();
             }
 
+            if (numUserGadgetsEntered < 0)
+            {
+                Console.WriteLine("You entered a negative number.  Converting to positive.");
+                numUserGadgetsEntered = Math.Abs(numUserGadgetsEntered);
+            }
+            
 
 
-
+            /*
+             * Prompt user for Gadget power source
+            */
+            
             //are these variables needed?
             string powerMediumSelected = "";
             string powerLargeSelected = "";
@@ -465,32 +550,29 @@ namespace week1
 
             OrderCheckOut myCheckOut = new OrderCheckOut();
 
-            switch (myOrder.userGadgetSizeReturn)
+            switch (userGadgetSizeEntered)
             {
-                case "S":
-                    //myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn);
-                    myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, "B");
+                case "Small":
+                    myCheckOut.DisplayOrder(userGadgetSizeEntered, "B");
                     powerSelection = "B";
                     break;
 
-                case "M":
+                case "Medium":
                     PowerSource selectedPowerSourceMedium = new PowerSource();
                     string powerMedium = selectedPowerSourceMedium.UserPowerSourceMedium();
                     powerMediumSelected = powerMedium;
 
                     powerSelection = powerMedium;
-                    //myCheckOut.DisplayOrder(powerMediumSelected);
-                    myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, powerMediumSelected);
+                    myCheckOut.DisplayOrder(userGadgetSizeEntered, powerMediumSelected);
                     break;
 
-                case "L":
+                case "Large":
                     PowerSource selectedPowerSourceLarge = new PowerSource();
                     string powerLarge = selectedPowerSourceLarge.UserPowerSourceLarge();
                     powerLargeSelected = powerLarge;
 
                     powerSelection = powerLarge;
-                    //myCheckOut.DisplayOrder(powerLargeSelected);
-                    myCheckOut.DisplayOrder(myOrder.userGadgetSizeReturn, powerLargeSelected);
+                    myCheckOut.DisplayOrder(userGadgetSizeEntered, powerLargeSelected);
                     break;
             }
 
@@ -535,7 +617,7 @@ namespace week1
             //!!!djck!!!
             //!!!djck!!!
             DisplayPricing myPriceDisplay = new DisplayPricing();
-            myPriceDisplay.DisplayCurrentOrder(myOrder.userGadgetSizeReturn, numUserGadgetsEntered, powerSelection);
+            myPriceDisplay.DisplayCurrentOrder(userGadgetSizeEntered, numUserGadgetsEntered, powerSelection);
 
             //Calculate myOrderCalulation = new Calculate();
             //!!!djck!!!
