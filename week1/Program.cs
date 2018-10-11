@@ -498,6 +498,7 @@ namespace week1
             /* 
              * Prompt user for Gadget size
             */
+            #region GadgetSize
             GadgetSizeChoice myGadgetSize = new GadgetSizeChoice();
             string userGadgetSizeEntered = myGadgetSize.ChooseGadgetSize();
 
@@ -536,13 +537,13 @@ namespace week1
                 Console.WriteLine("You entered a negative number.  Converting to positive.");
                 numUserGadgetsEntered = Math.Abs(numUserGadgetsEntered);
             }
-            
+            #endregion
 
 
             /*
-             * Prompt user for Gadget power source
+             * Prompt user for Gadget power source, and display the order
             */
-            
+            #region PowerSource
             //are these variables needed?
             string powerMediumSelected = "";
             string powerLargeSelected = "";
@@ -575,7 +576,7 @@ namespace week1
                     myCheckOut.DisplayOrder(userGadgetSizeEntered, powerLargeSelected);
                     break;
             }
-
+            #endregion
 
             /*
             Console.WriteLine(" ");

@@ -51,6 +51,9 @@ namespace week1.FINAL
                 Console.WriteLine();
                 Console.WriteLine("................Jacob's stuff....................");
                 Console.WriteLine();
+
+                //delete this after adding Manufacturer option code
+                Environment.Exit(0);
             }
 
         }
