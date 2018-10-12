@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using Week1.Homework1b;
 using week1.week2;
 using Week1.Homework2;
@@ -53,8 +55,30 @@ namespace week1
 
             //SimpleTaskExample();
             //MyAsyncExample();
+            //MyLinqExample();
 
             Final();
+        }
+
+        private static void MyLinqExample()
+        {
+            string[] names = { "Tom", "Don", "Harry", "Mary", "Jay" };
+            string[] moreNames = { "David", "Jack", "Jane", "Jay", "Bob" };
+
+            IEnumerable<string> query = names
+            .Where(n => n.Contains("a"))
+            .OrderBy(n => n.Length)
+            .Select(n => n.ToUpper());
+
+            foreach (string name in query) Console.WriteLine(name);
+
+            //another way to do a similar query as above, but without the lambda expressions
+            IEnumerable<string> customerQuery =
+            from cust in moreNames
+            where cust.Contains("a")
+            select cust;
+
+            foreach (string nameM in customerQuery) Console.WriteLine(nameM);
         }
 
         private async static void MyAsyncExample()    
@@ -489,7 +513,7 @@ namespace week1
 
 
             /*
-             * Display the order form details 
+             * Display the order form details based on Order Type choice
             */
             OrderForm myOrder = new OrderForm();
             myOrder.UserOrderForm(userOrderType);
@@ -500,6 +524,7 @@ namespace week1
             */
             #region GadgetSize
             GadgetSizeChoice myGadgetSize = new GadgetSizeChoice();
+            
             string userGadgetSizeEntered = myGadgetSize.ChooseGadgetSize();
 
             switch (userGadgetSizeEntered)
@@ -516,6 +541,13 @@ namespace week1
                     userGadgetSizeEntered = "Large";
                     break;
             }
+            #endregion
+
+
+            /*
+             * Prompt user to enter number of Gadgets to order
+            */
+            #region GadgetNumber
             Console.WriteLine();
             Console.WriteLine("Place order for how many " + userGadgetSizeEntered + " Gadgets ? ");
             Console.WriteLine();
@@ -541,12 +573,9 @@ namespace week1
 
 
             /*
-             * Prompt user for Gadget power source, and display the order
+             * Prompt user for Gadget power source, and display order details
             */
-            #region PowerSource
-            //are these variables needed?
-            string powerMediumSelected = "";
-            string powerLargeSelected = "";
+            #region PowerSourceAndDetails
             string powerSelection = "";
 
             OrderCheckOut myCheckOut = new OrderCheckOut();
@@ -561,23 +590,22 @@ namespace week1
                 case "Medium":
                     PowerSource selectedPowerSourceMedium = new PowerSource();
                     string powerMedium = selectedPowerSourceMedium.UserPowerSourceMedium();
-                    powerMediumSelected = powerMedium;
-
                     powerSelection = powerMedium;
-                    myCheckOut.DisplayOrder(userGadgetSizeEntered, powerMediumSelected);
+
+                    myCheckOut.DisplayOrder(userGadgetSizeEntered, powerMedium);
                     break;
 
                 case "Large":
                     PowerSource selectedPowerSourceLarge = new PowerSource();
                     string powerLarge = selectedPowerSourceLarge.UserPowerSourceLarge();
-                    powerLargeSelected = powerLarge;
-
                     powerSelection = powerLarge;
-                    myCheckOut.DisplayOrder(userGadgetSizeEntered, powerLargeSelected);
+
+                    myCheckOut.DisplayOrder(userGadgetSizeEntered, powerLarge);
                     break;
             }
             #endregion
 
+            #region UnsuedInterfaceCode
             /*
             Console.WriteLine(" ");
             Console.WriteLine(" ");
@@ -606,24 +634,19 @@ namespace week1
             Console.WriteLine();
             Console.WriteLine();
             */
+            #endregion
+
 
             Console.WriteLine(" ");
             Console.WriteLine(" ");
 
-
+            #region OrderCart            
             OrderCart myCurrentOrder = new OrderCart();
             myCurrentOrder.MyOrderCart(numUserGadgetsEntered, powerSelection);
 
-
-            //!!!djck!!!
-            //!!!djck!!!
             DisplayPricing myPriceDisplay = new DisplayPricing();
             myPriceDisplay.DisplayCurrentOrder(userGadgetSizeEntered, numUserGadgetsEntered, powerSelection);
-
-            //Calculate myOrderCalulation = new Calculate();
-            //!!!djck!!!
-            //!!!djck!!!
-
+            #endregion
 
 
             Console.WriteLine();
