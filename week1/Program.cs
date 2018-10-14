@@ -10,6 +10,7 @@ using Week1.Homework2;
 using week1.Fundamentals;
 using Week1.Homework3;
 using week1.Homework6;
+using week1.Homework7;
 using week1.Advanced;
 using week1.FINAL;
 
@@ -66,7 +67,8 @@ namespace week1
             //DelegateHW5();
 
             //Exception Handling example for Homework6
-            ExceptionHandlingHW6();
+            //ExceptionHandlingHW6();
+            AsyncTestingHW7();
 
             //Final();
         }
@@ -105,6 +107,21 @@ namespace week1
             // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
             //
             AsyncUtility myAPI = new AsyncUtility();
+            int myNum = await myAPI.AccessTheWebAsync();
+            Console.WriteLine(myNum);
+
+        }
+
+        private async static void AsyncTestingHW7()
+        {
+            AsyncTesting myAsyncTest = new AsyncTesting();
+            string myWord = await myAsyncTest.OpeningCrawlAsync();
+            Console.WriteLine(myWord);
+
+            // API call within AsyncTesting
+            // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+            //
+            AsyncTesting myAPI = new AsyncTesting();
             int myNum = await myAPI.AccessTheWebAsync();
             Console.WriteLine(myNum);
 
