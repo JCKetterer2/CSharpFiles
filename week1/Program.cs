@@ -2,12 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using Week1.Homework1b;
 using week1.week2;
 using Week1.Homework2;
 using week1.Fundamentals;
 using Week1.Homework3;
+using week1.Homework6;
 using week1.Advanced;
 using week1.FINAL;
 
@@ -58,8 +60,13 @@ namespace week1
             //MyAsyncExample();
             //MyLinqExample();
 
-            //Delegate example for Homework5
-            DelegateHW5();
+            //Note: HW4 is within DesignPatterns Project/Solution
+
+            //Delegate example for Homework5 (See Advanced folder XWing.cs)
+            //DelegateHW5();
+
+            //Exception Handling example for Homework6
+            ExceptionHandlingHW6();
 
             //Final();
         }
@@ -176,6 +183,34 @@ namespace week1
             //examples.MyException();
             //examples.MySecondExample();
             examples.MyThirdExample();
+        }
+
+        private static void ExceptionHandlingHW6()
+        {
+            ArrayListTesting StarWarsMovies = new ArrayListTesting();
+            StarWarsMovies.StarWarsArrayList();
+
+            ArrayList movieList = StarWarsMovies.StarWarsArrayList();
+
+            Console.WriteLine("--------------------------------------------------------------------");
+            Console.WriteLine("The Original Star Wars Trilogy consists of:");
+            Console.WriteLine("--------------------------------------------------------------------");
+            Console.WriteLine();
+
+            for (int i = 0; i < 7; i += 2)
+            {
+                try
+                {
+                    Console.WriteLine("\"" + movieList[i] + "\"" + " released in " + movieList[i + 1]);
+                }
+                catch
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Program loop has exceeded the amount of titles in the movie list.  Exiting program...");
+                }
+                
+            }
+
         }
 
         //Lambda example
