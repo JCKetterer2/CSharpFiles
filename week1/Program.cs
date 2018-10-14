@@ -21,6 +21,7 @@ namespace week1
 
         //Delegate example (Advanced - declaring a delegate variable)
         public delegate void TryOn(string type);
+        public delegate void Fly(string type);
 
         static void Main(string[] args)
         {
@@ -57,7 +58,10 @@ namespace week1
             //MyAsyncExample();
             //MyLinqExample();
 
-            Final();
+            //Delegate example for Homework5
+            DelegateHW5();
+
+            //Final();
         }
 
         private static void MyLinqExample()
@@ -210,6 +214,14 @@ namespace week1
 
             someHats = niceHat + sadHat;
             someHats("Cowboy");
+        }
+
+        //Delegate (Homework5)
+        private static void DelegateHW5()
+        {
+            XWing myXWing = new XWing("Rogue Leader", 7);
+            Fly theXWing = myXWing.FlyXWing;
+            theXWing("I flew with " + myXWing.XWingType + " who was a rank of " + myXWing.XWingRank);
         }
 
         //Event sample (Advanced)
