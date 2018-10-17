@@ -51,7 +51,9 @@ namespace week1
             //LambdaSample();
 
             //ExceptionSample();
+
             //CollectionSample();
+            //AnonymousTypeExample();
 
             //ThreadingSample();
             //ThreadingSample2();
@@ -68,9 +70,24 @@ namespace week1
 
             //Exception Handling example for Homework6
             //ExceptionHandlingHW6();
-            AsyncTestingHW7();
 
-            //Final();
+            //AsyncTestingHW7();
+
+            Final();
+        }
+
+        //Anonymous types and Select/LINQ statement
+        private static void AnonymousTypeExample()
+        {
+            CollectionExamples mySample = new CollectionExamples();
+            var myDinos =
+                from dino in mySample.MyListExample()
+                select new { dino.Size, dino.Teeth, dino.Skin };
+
+            foreach (var v in myDinos)
+            {
+                Console.WriteLine("Size = {0}, Teeth = {1}, Skin = {2}", v.Size, v.Teeth, v.Skin);
+            }
         }
 
         private static void MyLinqExample()
@@ -113,18 +130,19 @@ namespace week1
         }
 
         private async static void AsyncTestingHW7()
-        {
+        {            
             AsyncTesting myAsyncTest = new AsyncTesting();
             string myWord = await myAsyncTest.OpeningCrawlAsync();
             Console.WriteLine(myWord);
+            
 
             // API call within AsyncTesting
             // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
             //
-            AsyncTesting myAPI = new AsyncTesting();
-            int myNum = await myAPI.AccessTheWebAsync();
+            //AsyncTesting myAPI = new AsyncTesting();
+            //int myNum = await myAPI.AccessTheWebAsync();
+            int myNum = await myAsyncTest.AccessTheWebAsync();
             Console.WriteLine(myNum);
-
         }
 
         private static void SimpleTaskExample()

@@ -42,7 +42,7 @@ namespace week1.Homework7
                 lineNum++;
                 if (lineNum > 8)
                 {
-                    result = await Task.FromResult<string>("..............I've got a bad feeling about this");
+                    result = await Task.FromResult<string>("..............I've got a bad feeling about this\n\n");
                 }
                 else
                 {
@@ -59,8 +59,9 @@ namespace week1.Homework7
 
             // GetStringAsync returns a Task<string>. That means that when you await the  
             // task you'll get a string (urlContents).  
-            Task<string> getStringTask = client.GetStringAsync("http://www.theforce.net/");
-
+            //Task<string> getStringTask = client.GetStringAsync("http://www.theforce.net");
+            string urlContents = client.GetStringAsync("http://www.theforce.net").Result;
+            
             // You can do work here that doesn't rely on the string from GetStringAsync.  
             DoIndependentWork();
 
@@ -69,7 +70,7 @@ namespace week1.Homework7
             //  - Meanwhile, control returns to the caller of AccessTheWebAsync.  
             //  - Control resumes here when getStringTask is complete.   
             //  - The await operator then retrieves the string result from getStringTask.  
-            string urlContents = await getStringTask;
+            //string urlContents = await getStringTask;
 
             // The return statement specifies an integer result.  
             // Any methods that are awaiting AccessTheWebAsync retrieve the length value.  

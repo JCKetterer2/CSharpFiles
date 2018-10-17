@@ -25,18 +25,24 @@ namespace week1.Advanced
             }
         }
 
-        public void MyListExample()
+        public List<Dinosaur> MyListExample()
+        //public void MyListExample()
         {
             List<Dinosaur> myDinos = new List<Dinosaur>();
             myDinos.Add(new Dinosaur() { Size = 50, Teeth = "Serrated", Skin = true });
             myDinos.Add(new Pterodactyl() { Size = 25, Teeth = "Sharp" });
             myDinos.Add(new Dinosaur.Raptor() { Size = 10, Teeth = "Serrated", Skin = false });
 
+            return myDinos;
+
+            //Commented out to illustrate anonymous types, and return myDinos/List above
+            /*
             foreach (Dinosaur dinosaur in myDinos)
             {
                 //Console.WriteLine(dinosaur);
                 Console.WriteLine(dinosaur.Size);
             }
+            */
         }
     }
 }
