@@ -20,7 +20,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 xxxxxxxxxxxxxx
 
-<img src="http://johnandcecily.com/pics/peru/P6150030.jpg" style="border:0;">
+<img src="https://github.com/JCKetterer2/CSharpFiles/blob/master/pics/C64.jpg?raw=true" style="border:0;">
 
 ### Heading3Exxample
 
